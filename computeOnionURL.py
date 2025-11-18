@@ -17,4 +17,14 @@ checksum_input = b".onion checksum" + pubkey + version
 print(checksum_input)
 
 checksum = hashlib.sha3_256(checksum_input).digest()[:2]
+print(checksum)
+
+address_bytes = pubkey + checksum + version
+print(address_bytes)
+
+#base32 encode
+onion_address = base64.b32encode(address_bytes).decode("ascii").lower()
+print(onion_address + ".onion")
+
+
 
