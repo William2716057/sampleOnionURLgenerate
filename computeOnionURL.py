@@ -1,12 +1,18 @@
 import base64
 import hashlib
+import os
 
+#pubkey = bytes.fromhex(
+#    "1d0f172c16421e2cd26ae3c98e0f5d2a"
+#    "f8f2a7b3e9dc10d3e2efa69f98f7b2cd"
+#)
 
-pubkey = bytes.fromhex(
-    "1d0f172c16421e2cd26ae3c98e0f5d2a"
-    "f8f2a7b3e9dc10d3e2efa69f98f7b2cd"
-)
+randomKey = os.urandom(32).hex()
+#key2 = os.urandom(32).hex()
 
+print(randomKey)
+#print(key2)
+pubkey = bytes.fromhex(randomKey)
 #pubkey = open("hs_ed25519_public_key", "rb").read()[32:] # : skips first 32 bytes 
 print(pubkey)
 #tor version 3
